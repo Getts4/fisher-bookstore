@@ -61,6 +61,7 @@ namespace Fisher.Bookstore.Api.Controllers
 
             return Ok(book);
         }
+       
         [HttpPost]
         public IActionResult Post([FromBody]Book book)
         {
@@ -73,6 +74,5 @@ namespace Fisher.Bookstore.Api.Controllers
 
             return CreatedAtRoute("GetBook", new {id = book.Id}, book);
         }
-       
     }
 }
