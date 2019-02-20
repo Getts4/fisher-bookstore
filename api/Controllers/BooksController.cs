@@ -61,6 +61,18 @@ namespace Fisher.Bookstore.Api.Controllers
 
             return Ok(book);
         }
+        [HttpPost]
+        public IActionResult Post([FromBody]Book book)
+        {
+            if (book == null){
+                return BadRequest();
+            }
+
+            db.Books.Add(book);
+            db.SaveChanges();
+
+            return CreatedAtRoute("GetBook", new {id = book.Id}, book);
+        }
        
     }
 }
